@@ -1,0 +1,13 @@
+# Build output
+/target/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Compiled files
+*.class
+
+# Sensitive credentials - DO NOT COMMIT
+db.properties

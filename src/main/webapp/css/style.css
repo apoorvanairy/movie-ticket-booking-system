@@ -1,0 +1,312 @@
+/* ============================================
+   GOOGLE FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   COLOR & DESIGN TOKENS
+   ============================================ */
+:root {
+    --bg: #121212;
+    --surface: #1E1E1E;
+    --surface-hover: #262626;
+    --accent-gold: #E8B34C;
+    --accent-red: #E63946;
+    --text-primary: #F5F5F0;
+    --text-muted: #A0A0A0;
+    --border: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; color: var(--accent-gold); }
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--surface);
+    padding: 16px 32px;
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.navbar .brand {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+}
+
+.navbar .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.navbar .logout-btn {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.navbar .logout-btn:hover {
+    background-color: #c62834;
+    text-decoration: none;
+}
+
+/* ============================================
+   PAGE CONTAINER
+   ============================================ */
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+}
+
+/* ============================================
+   MOVIE GRID + TICKET-STUB CARD
+   ============================================ */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.movie-card {
+    background-color: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    text-align: center;
+    padding: 12px;
+}
+
+.ticket-divider {
+    position: relative;
+    border-top: 2px dashed var(--border);
+    margin: 0;
+}
+
+.ticket-divider::before,
+.ticket-divider::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg);
+    border-radius: 50%;
+}
+
+.ticket-divider::before { left: -8px; }
+.ticket-divider::after { right: -8px; }
+
+.movie-info {
+    padding: 16px;
+}
+
+.movie-info .movie-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.movie-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(232, 179, 76, 0.15);
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+.book-btn {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 10px;
+    background-color: var(--accent-gold);
+    color: #121212;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.book-btn:hover {
+    background-color: #f0c266;
+}
+
+.book-btn:disabled {
+    background-color: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* ============================================
+   AUTH FORMS (Login / Register)
+   ============================================ */
+.auth-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.auth-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.auth-card h1 {
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.auth-card .subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.auth-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-gold);
+    color: #121212;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.auth-submit:hover {
+    background-color: #f0c266;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.error-message {
+    background-color: rgba(230, 57, 70, 0.15);
+    border: 1px solid var(--accent-red);
+    color: #ff8a93;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+}
